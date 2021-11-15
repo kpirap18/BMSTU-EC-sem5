@@ -11,7 +11,7 @@
 \contentsline {chapter}{Контрольные вопросы}{23}{chapter*.23}%
 \contentsline {subsubsection}{1. Назовите причины расслоения оперативной памяти.}{23}{subsubsection*.24}%
 \contentsline {subsubsection}{2. Как в современных процессорах реализована аппаратная предвыборка.}{23}{subsubsection*.25}%
-\contentsline {subsubsection}{3. Какая информация храниться в TLB.}{23}{subsubsection*.26}%
+\contentsline {subsubsection}{3. Какая информация храниться в TLB.}{24}{subsubsection*.26}%
 \contentsline {subsubsection}{4. Какой тип ассоциативной памяти используется в кэш-памяти второго уровня современных ЭВМ и почему.}{24}{subsubsection*.27}%
-\contentsline {subsubsection}{5. Приведите пример программной предвыборки.}{24}{subsubsection*.28}%
-\contentsline {chapter}{Заключение}{25}{chapter*.29}%
+\contentsline {subsubsection}{5. Приведите пример программной предвыборки.}{25}{subsubsection*.28}%
+\contentsline {chapter}{Заключение}{26}{chapter*.29}%
