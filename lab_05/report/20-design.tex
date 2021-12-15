@@ -1,0 +1,188 @@
+\chapter*{Вариант идивидуального задания}
+\addcontentsline{toc}{chapter}{Вариант идивидуального задания}
+
+В листинге \ref{lst:con} представлен индивидуальный вариант (по списку 9).
+
+\captionsetup{singlelinecheck = false, justification=raggedright}
+\begin{lstlisting}[label=lst:con,caption=Индивидуальный вариант 9]
+extern "C" {
+	void var009(int* c, const int* a, const int* b, const int len) {
+		int meanA = 0;
+		int meanB = 0;
+		for (int i = 0; i < len; i++) {
+			meanA += a[i];
+			meanB += b[i];
+		}
+		for (int i = 0; i < len; i+=2) {
+			c[i] = meanA;
+			c[i+1] = meanB;
+		}
+	}
+}
+\end{lstlisting}
+
+
+\chapter*{Файлы функций ядра на основе индивидуального задания}
+\addcontentsline{toc}{chapter}{Файлы функций ядра на основе индивидуального задания}
+
+В листинге \ref{lst:l1} представлен не оптимизированный цикл на основе индивидуального задания.
+\captionsetup{singlelinecheck = false, justification=raggedright}
+\begin{lstlisting}[label=lst:l1,caption=Индивидуальный вариант 9]
+	extern "C" {
+		void var009(int* c, const int* a, const int* b, const int len) {
+			int meanA = 0;
+			int meanB = 0;
+			for (int i = 0; i < len; i++) {
+				meanA += a[i];
+				meanB += b[i];
+			}
+			for (int i = 0; i < len; i+=2) {
+				c[i] = meanA;
+				c[i+1] = meanB;
+			}
+		}
+	}
+\end{lstlisting}
+
+В листинге \ref{lst:l2} представлен конвейерная организация цикла на основе индивидуального задания.
+\captionsetup{singlelinecheck = false, justification=raggedright}
+\begin{lstlisting}[label=lst:l2,caption=Индивидуальный вариант 9]
+extern "C" {
+	void var009_pipelined(int* c, const int* a, const int* b, const int len) {
+		#pragma HLS PIPELINE
+		int meanA = 0;
+		int meanB = 0;
+		for (int i = 0; i < len; i++) {
+			meanA += a[i];
+			meanB += b[i];
+		}
+		for (int i = 0; i < len; i+=2) {
+			c[i] = meanA;
+			c[i+1] = meanB;
+		}
+	}
+}
+
+\end{lstlisting}
+
+
+В листинге \ref{lst:l3} представлен частично развернутый цикл на основе индивидуального задания.
+\captionsetup{singlelinecheck = false, justification=raggedright}
+\begin{lstlisting}[label=lst:l3,caption=Индивидуальный вариант 9]
+extern "C" {
+	void var009_unrolled(int* c, const int* a, const int* b, const int len) {
+		#pragma HLS UNROLL
+		int meanA = 0;
+		int meanB = 0;
+		for (int i = 0; i < len; i++) {
+			meanA += a[i];
+			meanB += b[i];
+		}
+		for (int i = 0; i < len; i+=2) {
+			c[i] = meanA;
+			c[i+1] = meanB;
+		}
+	}
+}
+
+\end{lstlisting}
+
+В листинге \ref{lst:l4} представлен конвейерный и частично развернутый цикл на основе индивидуального задания.
+\captionsetup{singlelinecheck = false, justification=raggedright}
+\begin{lstlisting}[label=lst:l4,caption=Индивидуальный вариант 9]
+extern "C" {
+	void var009_pipe_unroll(int* c, const int* a, const int* b, const int len) {
+		#pragma HLS DATAFLOW
+		int meanA = 0;
+		int meanB = 0;
+		for (int i = 0; i < len; i++) {
+			meanA += a[i]; meanB += b[i];
+		}
+		for (int i = 0; i < len; i+=2) {
+			c[i] = meanA; c[i+1] = meanB;
+		}
+	}
+}
+\end{lstlisting}
+
+
+\chapter*{Результаты рабты приложения в режиме Emulation-SW}
+\addcontentsline{toc}{chapter}{Результаты рабты приложения в режиме Emulation-SW}
+
+На рисунке \ref{img:r1} представлены результаты работы приложения в режиме Emulation-SW.
+
+\img{70mm}{r1}{Результаты рабты приложения в режиме Emulation-SW}
+
+
+\chapter*{Копия экрана Assistant View для сборки Emulation-HW}
+\addcontentsline{toc}{chapter}{Копия экрана Assistant View для сборки Emulation-HW}
+
+На рисунке \ref{img:r2} представлена копия экрана Assistant View для сборки Emulation-HW.
+
+\img{100mm}{r2}{Копия экрана Assistant View для сборки Emulation-HW}
+
+
+\chapter*{Результаты работы приложения в режиме Emulation-HW}
+\addcontentsline{toc}{chapter}{Результаты работы приложения в режиме Emulation-HW}
+
+На рисунке \ref{img:r3} представлены результаты работы приложения в режиме Emulation-HW.
+
+\img{190mm}{r3}{Результаты рабты приложения в режиме Emulation-HW}
+
+
+\chapter*{Окно внутрисхемного отладчика Vivado для сборки в режиме Emulation-HW}
+\addcontentsline{toc}{chapter}{Окно внутрисхемного отладчика Vivado для сборки в режиме Emulation-HW}
+
+На рисунке \ref{img:r4} представлено окно внутрисхемного отладчика Vivado для сборки в режиме Emulation-HW.
+
+\img{110mm}{r4}{Окно внутрисхемного отладчика Vivado для сборки в режиме Emulation-HW}
+
+\chapter*{Результаты работы приложения в режиме Hardware}
+\addcontentsline{toc}{chapter}{Результаты работы приложения в режиме Hardware}
+
+На рисунке \ref{img:r5} представлены результаты работы приложения в режиме Hardware.
+
+\img{140mm}{r5}{Результаты рабты приложения в режиме Hardware}
+
+
+\chapter*{Копии вкладок для сборки Hardware}
+\addcontentsline{toc}{chapter}{Копии вкладок для сборки Hardware}
+
+На рисунке \ref{img:r6} представлены результаты работы приложения в режиме Hardware.
+
+\img{190mm}{r6}{Результаты рабты приложения в режиме Hardware}
+\newpage
+
+На рисунке \ref{img:r7} представлены результаты работы приложения в режиме Hardware.
+
+\img{190mm}{r7}{Результаты рабты приложения в режиме Hardware}
+\newpage
+
+На рисунке \ref{img:r8} представлены результаты работы приложения в режиме Hardware.
+
+\img{190mm}{r8}{Результаты рабты приложения в режиме Hardware}
+\newpage
+
+На рисунке \ref{img:r9} представлены результаты работы приложения в режиме Hardware.
+
+\img{190mm}{r9}{Результаты рабты приложения в режиме Hardware}
+\newpage
+
+На рисунке \ref{img:r10} представлены результаты работы приложения в режиме Hardware.
+
+\img{190mm}{r10}{Результаты рабты приложения в режиме Hardware}
+\newpage
+
+На рисунке \ref{img:r11} представлены результаты работы приложения в режиме Hardware.
+
+\img{190mm}{r11}{Результаты рабты приложения в режиме Hardware}
+\newpage
+
+На рисунке \ref{img:r12} представлены результаты работы приложения в режиме Hardware.
+
+\img{190mm}{r12}{Результаты рабты приложения в режиме Hardware}
+\newpage
+
+\chapter*{Обоснование результатов тестов и выводы.}
+\addcontentsline{toc}{chapter}{Обоснование результатов тестов и выводы.}
+
