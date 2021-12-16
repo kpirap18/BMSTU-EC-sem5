@@ -50,15 +50,12 @@ extern "C" {
 extern "C" {
 	void var009_pipelined(int* c, const int* a, const int* b, const int len) {
 		#pragma HLS PIPELINE
-		int meanA = 0;
-		int meanB = 0;
+		int meanA = 0; int meanB = 0;
 		for (int i = 0; i < len; i++) {
-			meanA += a[i];
-			meanB += b[i];
+			meanA += a[i]; meanB += b[i];
 		}
 		for (int i = 0; i < len; i+=2) {
-			c[i] = meanA;
-			c[i+1] = meanB;
+			c[i] = meanA; c[i+1] = meanB;
 		}
 	}
 }
@@ -72,11 +69,9 @@ extern "C" {
 extern "C" {
 	void var009_unrolled(int* c, const int* a, const int* b, const int len) {
 		#pragma HLS UNROLL
-		int meanA = 0;
-		int meanB = 0;
+		int meanA = 0; int meanB = 0;
 		for (int i = 0; i < len; i++) {
-			meanA += a[i];
-			meanB += b[i];
+			meanA += a[i]; meanB += b[i];
 		}
 		for (int i = 0; i < len; i+=2) {
 			c[i] = meanA;
@@ -106,12 +101,12 @@ extern "C" {
 \end{lstlisting}
 
 
-\chapter*{Результаты рабты приложения в режиме Emulation-SW}
+\chapter*{Результаты работы приложения в режиме Emulation-SW}
 \addcontentsline{toc}{chapter}{Результаты рабты приложения в режиме Emulation-SW}
 
 На рисунке \ref{img:r1} представлены результаты работы приложения в режиме Emulation-SW.
 
-\img{70mm}{r1}{Результаты рабты приложения в режиме Emulation-SW}
+\img{70mm}{r1}{Результаты работы приложения в режиме Emulation-SW}
 
 
 \chapter*{Копия экрана Assistant View для сборки Emulation-HW}
@@ -127,7 +122,7 @@ extern "C" {
 
 На рисунке \ref{img:r3} представлены результаты работы приложения в режиме Emulation-HW.
 
-\img{190mm}{r3}{Результаты рабты приложения в режиме Emulation-HW}
+\img{190mm}{r3}{Результаты работы приложения в режиме Emulation-HW}
 
 
 \chapter*{Окно внутрисхемного отладчика Vivado для сборки в режиме Emulation-HW}
@@ -142,47 +137,52 @@ extern "C" {
 
 На рисунке \ref{img:r5} представлены результаты работы приложения в режиме Hardware.
 
-\img{140mm}{r5}{Результаты рабты приложения в режиме Hardware}
+\img{140mm}{r5}{Результаты работы приложения в режиме Hardware}
 
 
 \chapter*{Копии вкладок для сборки Hardware}
 \addcontentsline{toc}{chapter}{Копии вкладок для сборки Hardware}
 
-На рисунке \ref{img:r6} представлены результаты работы приложения в режиме Hardware.
+На рисунке \ref{img:r6} представлена копия экрана вкладки «Summary».
 
-\img{190mm}{r6}{Результаты рабты приложения в режиме Hardware}
+\img{190mm}{r6}{Копия экрана вкладки «Summary»}
 \newpage
 
-На рисунке \ref{img:r7} представлены результаты работы приложения в режиме Hardware.
+На рисунке \ref{img:r7} представлена копия экрана вкладки «System Diagram».
 
-\img{190mm}{r7}{Результаты рабты приложения в режиме Hardware}
+\img{190mm}{r7}{Копия экрана вкладки «System Diagram»}
 \newpage
 
-На рисунке \ref{img:r8} представлены результаты работы приложения в режиме Hardware.
+На рисунке \ref{img:r8} представлена копия экрана вкладки «Platform Diagram».
 
-\img{190mm}{r8}{Результаты рабты приложения в режиме Hardware}
+\img{190mm}{r8}{Копия экрана вкладки «Platform Diagram»}
 \newpage
 
-На рисунке \ref{img:r9} представлены результаты работы приложения в режиме Hardware.
+На рисунке \ref{img:r9} представлена копия экрана вкладки «HLS Synthesis».
 
-\img{190mm}{r9}{Результаты рабты приложения в режиме Hardware}
+\img{190mm}{r9}{Копия экрана вкладки «HLS Synthesis»}
 \newpage
 
-На рисунке \ref{img:r10} представлены результаты работы приложения в режиме Hardware.
+На рисунке \ref{img:r10} представлена копия экрана вкладки «HLS Synthesis».
 
-\img{190mm}{r10}{Результаты рабты приложения в режиме Hardware}
+\img{190mm}{r10}{Копия экрана вкладки «HLS Synthesis»}
 \newpage
 
-На рисунке \ref{img:r11} представлены результаты работы приложения в режиме Hardware.
+На рисунке \ref{img:r11} представлена копия экрана вкладки «HLS Synthesis».
 
-\img{190mm}{r11}{Результаты рабты приложения в режиме Hardware}
+\img{190mm}{r11}{Копия экрана вкладки «HLS Synthesis»}
 \newpage
 
-На рисунке \ref{img:r12} представлены результаты работы приложения в режиме Hardware.
+На рисунке \ref{img:r12} представлена копия экрана вкладки «HLS Synthesis».
 
-\img{190mm}{r12}{Результаты рабты приложения в режиме Hardware}
+\img{190mm}{r12}{Копия экрана вкладки «HLS Synthesis»}
 \newpage
 
 \chapter*{Обоснование результатов тестов и выводы.}
 \addcontentsline{toc}{chapter}{Обоснование результатов тестов и выводы.}
 
+Из рисунка  \ref{img:r5} видно, что наибольшее время выполнения у цикла без оптимизаций.
+
+Наименьшее время выполнения было достигнуто при частично развернутом цикле, так как в нем все развернутые итерации выполняются параллельно и количество итераций тем самым уменьшается.
+
+Одновременное применение конвейеризации и частично развертывания тела цикла позволило ускорить обработку по сравнению с не оптимизированный циклом, однако уступило по времени организации, при которой использовалась толко конвейерная организация. Вероятнее всего это вызвано неудачно подобранными параметрами развертывания.

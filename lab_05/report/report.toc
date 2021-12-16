@@ -16,6 +16,6 @@
 \contentsline {subsubsection}{1. Назовите преимущества и недостатки аппаратных ускорителей на ПЛИС по сравнению с CPU и графическими ускорителями?}{21}{subsubsection*.26}%
 \contentsline {subsubsection}{2. Назовите основные способы оптимизации циклических конструкций ЯВУ, реализуемых в виде аппаратных ускорителей?}{21}{subsubsection*.27}%
 \contentsline {subsubsection}{3. Назовите этапы работы программной части ускорителя в хост системе?}{21}{subsubsection*.28}%
-\contentsline {subsubsection}{4. В чем заключается процесс отладки для вариантов сборки Emulation-SW, Emulation-HW и Hardware?}{21}{subsubsection*.29}%
-\contentsline {subsubsection}{5. Какие инструменты и средства анализа результатов синтеза возможно использовать в Vitis HLS для оптимизации ускорителей?}{21}{subsubsection*.30}%
-\contentsline {chapter}{Заключение}{22}{chapter*.31}%
+\contentsline {subsubsection}{4. В чем заключается процесс отладки для вариантов сборки Emulation-SW, Emulation-HW и Hardware?}{22}{subsubsection*.29}%
+\contentsline {subsubsection}{5. Какие инструменты и средства анализа результатов синтеза возможно использовать в Vitis HLS для оптимизации ускорителей?}{22}{subsubsection*.30}%
+\contentsline {chapter}{Заключение}{23}{chapter*.31}%
